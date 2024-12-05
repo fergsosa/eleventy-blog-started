@@ -172,6 +172,18 @@ p {
         float: right;
         align-items: center;
         padding-right: 14px;
+
+        a {
+          padding: 12px 15px;
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          color: #fff;
+          &:last-child {
+            border: 2px solid #5f67ec;
+            background-color: #5f67ec;
+          }
+        }
       }
     }
   }
