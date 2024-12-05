@@ -67,9 +67,7 @@ body {
   color: var(--text-light);
   background-color: var(--bg-dark);
   margin: 0 auto;
-  /* padding: 1rem; */
   overflow-x: hidden;
-  /* max-width: 1080px; */
 }
 
 a {
@@ -115,14 +113,12 @@ h6 {
 }
 
 ul {
-  /* padding-left: 0; */
   margin: 0;
 }
 li {
   font-size: var(--step-16);
   line-height: var(--step-16);
   letter-spacing: 0.05rem;
-  /* list-style: none; */
 }
 
 img {
@@ -132,9 +128,7 @@ img {
 
 p {
   font-size: var(--step-16);
-  /* line-height: var(--step-16); */
   letter-spacing: 0.02rem;
-  /* margin: 0; */
 }
 
 /* ********** Components ********** */
@@ -211,7 +205,6 @@ footer {
   font-size: 12px;
   letter-spacing: 0.75px;
   line-height: 1.5;
-  /* text-transform: uppercase; */
 
   .afiliate {
     padding: 3rem 0 1.5rem;

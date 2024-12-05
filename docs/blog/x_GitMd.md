@@ -1,7 +1,7 @@
 ---
 layout: layout-post.njk
 title: X-Git
-img: /img/git.svg
+img: /img/Git.svg
 description: Ideas principales de Git
 tags: ["blog", "lengaujes"]
 date: "2024-02-04"

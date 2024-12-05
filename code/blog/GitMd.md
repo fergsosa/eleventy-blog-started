@@ -1,7 +1,7 @@
 ---
 layout: layout-post.njk
 title: Git
-img: /img/git.svg
+img: /img/Git.svg
 description: Ideas principales de Git
 tags: ["blog", "lengaujes"]
 date: "2023-02-04"

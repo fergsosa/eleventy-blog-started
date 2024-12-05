@@ -1,7 +1,7 @@
 ---
 layout: layout-post.njk
 title: Markdown
-img: /img/markdown.svg
+img: /img/Markdown.svg
 description: Ideas principales de Markdown
 tags: ["blog", "lengaujes"]
 date: "2023-02-03"

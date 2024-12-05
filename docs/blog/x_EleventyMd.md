@@ -1,7 +1,7 @@
 ---
 layout: layout-post.njk
 title: X-Eleventy
-img: /img/eleventy.svg
+img: /img/Eleventy.svg
 description: Ideas principales de Eleventy
 tags: ["blog", "lengaujes"]
 bgColor: "cyan"

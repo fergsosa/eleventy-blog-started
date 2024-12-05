@@ -187,7 +187,20 @@ p {
         float: right;
         align-items: center;
         padding-right: 14px;
-        li {
+        /* background-color: red; */
+
+        a {
+          padding: 12px 15px;
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          color: #fff;
+          &:last-child {
+            border: 2px solid #5f67ec;
+            background-color: #5f67ec;
+          }
+        }
+        /* li {
           padding: 12px 15px;
           list-style: none;
           &:last-child {
@@ -201,7 +214,7 @@ p {
             font-size: 14px;
             color: #fff;
           }
-        }
+        } */
       }
     }
   }
@@ -229,6 +242,7 @@ footer {
   grid-template-columns: repeat(2, 50%);
 
   .box-texto {
+    margin-top: 3rem;
     display: flex;
     align-items: center;
     flex-direction: column;
