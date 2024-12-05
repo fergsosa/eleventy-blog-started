@@ -142,7 +142,6 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(to bottom, #f000 70%, #000 100%); */
     background: linear-gradient(to left, #f000 70%, #111 100%);
     pointer-events: none; /* Permite interacción con la imagen */
   }
@@ -187,7 +186,6 @@ p {
         float: right;
         align-items: center;
         padding-right: 14px;
-        /* background-color: red; */
 
         a {
           padding: 12px 15px;
@@ -200,21 +198,6 @@ p {
             background-color: #5f67ec;
           }
         }
-        /* li {
-          padding: 12px 15px;
-          list-style: none;
-          &:last-child {
-            border: 2px solid #5f67ec;
-            background-color: #5f67ec;
-          }
-
-          a {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: #fff;
-          }
-        } */
       }
     }
   }
@@ -274,11 +257,6 @@ footer {
         color: #fff;
         background-color: #000;
       }
-    }
-    .svg {
-      margin-top: 2rem;
-      max-height: 200px;
-      /* background-color: red; */
     }
   }
   .box-img {
