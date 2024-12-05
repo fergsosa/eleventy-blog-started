@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git</title>
+    <meta name="description" content="Ideas principales de Git">
+    <link rel="icon" href="/eleventy-blog-started/img/icono.png">
+    <link rel="stylesheet" href="/eleventy-blog-started/css/styles-post.css">
+  </head>
+  <body>
+    <header>
+  <nav class="navbar">
+  <div class="grir-parent">
+    <div class="grid-item">
+      <div class="logo">
+        <a href="/eleventy-blog-started/">
+          <img src="/eleventy-blog-started/img/logo-header.svg" alt="logo">
+        </a>
+      </div>
+      <div class="menu">
+          <a href="/eleventy-blog-started/">Inicio</a>
+          <a href="/eleventy-blog-started/blog">Blog</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+    <main>
+      <h1>Git</h1>
+<p><img src="/eleventy-blog-started/img/Git.svg" alt="Git"></p>
+<!-- [🔼 Regresar](#temas) -->
+<h2 id="temas">Temas</h2>
+<ul>
+<li><a href="#flujo-de-trabaja-git-flow">Flujo de trabaja GitFlow</a></li>
+<li><a href="#comandos-para-la-terminal">Comandos para la terminal</a></li>
+<li><a href="#ps-procesos">ps &gt; procesos</a></li>
+<li><a href="#configuraci%C3%B3n-global-inicial-de-git">configuración GLOBAL inicial de git</a></li>
+<li><a href="#comandos-para-git">Comandos para GIT</a></li>
+<li><a href="#tipos-de-commits">Tipos de commits</a></li>
+<li><a href="#git-hub">GitHub</a></li>
+<li><a href="#creado-de-Local-a-git-hub">Creado de Local a GitHub</a></li>
+</ul>
+<h2>Comandos Git</h2>
+<pre><code class="language-bash">  mkdir 🔸 crear carpeta
+  rmdir 🔸 eliminar carpeta
+  ls 🔸 contenido de carpeta
+  git init 🔸 inicializar
+  git add 🔸 AGREGA a staged
+  git status 🔸 estado
+  git rm --cached 🔸 quita del area de staged
+  git commit -m 🔸 REGISTRA el cambio al repositorio Local
+  git 🔸 inicializar
+</code></pre>
+<h2>diff</h2>
+<pre><code class="language-bash"> git show 🔸 muestra los ÚLTIMOS cambios
+ git diff --staged 🔸 muestra las diferencias cuando esta en STAGED
+ git diff id1 id2 🔸 muestra las diferencias ENTRE los archivos
+ git diff --name-only id1 id2 🔸 muestra los ARCHIVOS que modificaron
+ git diff --word-diff id1 id2 🔸 muestra las LINEAS modificadas
+</code></pre>
+<h2>Modifico commit</h2>
+<pre><code class="language-bash"> git commit --amend  🔸 vuelvo al ultimo commit y lo puedo modificar el NOMBRE/DESCRIPCIÓN
+ git rebase -i head~3  🔸 te muestra los ultimo commit a los que puedes volver / edit: para volver
+</code></pre>
+<pre><code class="language-bash"> pick 8442d96 commit 03
+ edit a6863b6 commit 04 🔸vuelve
+ pick f8284fe Ultimo commit
+</code></pre>
+<pre><code> git rebase --continue 🔸 inicializar
+</code></pre>
+<hr>
+<h2>Estados</h2>
+<ul>
+<li>1er lugar &gt; add STAGED</li>
+<li>2er lugar &gt; sin add PC</li>
+<li>vació lugar &gt; commit HEAD</li>
+<li>?? archivo &gt; nvo a agregar / SIN add / modificado?</li>
+</ul>
+<hr>
+<table>
+<thead>
+<tr>
+<th>1er</th>
+<th>2do</th>
+<th>add</th>
+<th>commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>_</td>
+<td>✅</td>
+<td>nvo a agregar</td>
+</tr>
+<tr>
+<td>A</td>
+<td>M</td>
+<td>✅</td>
+<td>nvo a agregar / pos modificado</td>
+</tr>
+<tr>
+<td>_</td>
+<td>M</td>
+<td>⛔</td>
+<td>modificado</td>
+</tr>
+<tr>
+<td>M</td>
+<td>_</td>
+<td>✅</td>
+<td>modificado</td>
+</tr>
+<tr>
+<td>M</td>
+<td>m</td>
+<td>✅</td>
+<td>commit? / modificado // SIN add / pos modificado</td>
+</tr>
+<tr>
+<td>D</td>
+<td>_</td>
+<td>⛔</td>
+<td>eliminado</td>
+</tr>
+<tr>
+<td>_</td>
+<td>D</td>
+<td>✅</td>
+<td>eliminado</td>
+</tr>
+<tr>
+<td>R</td>
+<td>_</td>
+<td>⛔</td>
+<td>cambio nombre</td>
+</tr>
+<tr>
+<td>_</td>
+<td>D</td>
+<td>✅</td>
+<td>cambio nombre</td>
+</tr>
+<tr>
+<td>_</td>
+<td>_</td>
+<td>⛔</td>
+<td>vació lugar commit/HEAD</td>
+</tr>
+</tbody>
+</table>
+<h2>Deshacer commit</h2>
+<pre><code class="language-bash">git reset id 🔸 vuelve al commit del id
+git reset --soft id 🔸 staging / con add
+git reset --mixed id 🔸 pc / sin add
+git reset --hard id 🔸 commit sin modificar vació
+</code></pre>
+<h2>Reflog</h2>
+<pre><code class="language-bash">git reset --hard idBorrar 🔸 vuelve al id
+git reset --hard idBorrado 🔸 con el id se puede volver al hard
+git reflog 🔸 muestra todos los lugares donde el HEAD apunto
+git reset --hard idReflog 🔸 recuperas el estado donde estaba el archivo
+</code></pre>
+<h2>Ramas</h2>
+<pre><code class="language-bash"> git branch 🔸 VER ramas
+ git branch -d nomRama 🔸 BORRAR notas
+ git branch -m nomNvo 🔸 RENOMBRAR rama / posicionado en la rama
+ git branch -m nomViejo nomNvo 🔸 RENOMBRAR rama / posicionado en otras rama
+
+ git switch 🔸 MOVER de rama
+ git switch -c nomb 🔸 crear y mover de rama
+
+ git merge nomRama 🔸 fusionar ramas / posicionado en la rama
+</code></pre>
+<h2>Stash</h2>
+<pre><code class="language-bash"> git stash 🔸 Guardar temporalmente los cambios de la rama
+ git stash list 🔸 Guardar temporalmente los cambios de la rama
+ git stash pop 🔸 para volver al commit guardado
+</code></pre>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+<h1 id="flujo-de-trabaja-git-flow">Flujo de trabaja GitFlow</h1>
+<table>
+<thead>
+<tr>
+<th>ramas</th>
+<th>componente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-main</td>
+<td>_v0.1 Rama principal</td>
+</tr>
+<tr>
+<td>--hotfix</td>
+<td>_v0.2 Corregir error rápidamente</td>
+</tr>
+<tr>
+<td>---release</td>
+<td>_v1.0 publicación</td>
+</tr>
+<tr>
+<td>-develop</td>
+<td>_integra todas las funcionalidades</td>
+</tr>
+<tr>
+<td>---feature</td>
+<td>_funcionalidades</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+<h1 id="comandos-para-la-terminal">Comandos para la terminal</h1>
+<pre><code> pwd 🔸 MUESTRA la carpeta actual
+ pwd --help 🔸 MUESTRA los comandos existentes
+
+ clear 🔸 LIMPIAR los comandos
+
+ ls 🔸 MUESTRA archivos de la carpeta
+ ls -l 🔸 MUESTRA &quot;mas&quot; archivos de la carpeta
+ ls -a 🔸 MUESTRA archivos &quot;ocultos&quot; de la carpeta
+ ls -la 🔸 MUESTRA &quot;combinación&quot; de lo anterior
+ ls --help 🔸 MUESTRA total de los comandos
+
+ cd 🔸 cambiar de directorio
+ cd nombCarp 🔸 CAMBIA de carpeta
+ cd mouse 🔸 arrastra la capeta a la que CAMBIAS
+ cd ~ 🔸 cambiar a la carpeta INICIAL
+ cd . 🔸 directorio ACTUAL
+ cd .. 🔸 cambia a capeta ANTERIOR/PADRE
+ cd / 🔸 cambia capeta RAÍZ (disco duro c)
+ cd c 🔸 cambia disco duro C
+ cd - 🔸 regresa a la carpeta ANTERIOR
+ cd &quot;nomb capeta&quot; 🔸 si tiene espacios USAR &quot;&quot;
+
+ `touch nA 🔸 CREA un archivo nuevo
+ mkdir nC 🔸 CREA una carpeta
+ echo &quot;contenido 🔸 nombArchivo 🔸 CREA un archivo con contenido
+ cat nombArch 🔸 MUESTRA el contenido del archivo
+
+ rm 🔸 ELIMINA archivos
+ rmdir 🔸 ELIMINA una carpeta vacía
+ rm -r nombCarp 🔸 ELIMINA carpeta con contenido
+ rm -rf nombCarp 🔸 forzar la ELIMINA carpeta con contenido
+
+ mv nombArch nombCarpeta 🔸 MOVER archivo a carpeta
+ mv nombArch nvoNombArch 🔸 RENOMBRAR archivo
+
+ cp nombArch nombCarpeta 🔸 COPIAR archivo a carpeta
+ cp nombArch nombCarpeta/nvoNombArch 🔸 COPIAR archivo a carpeta con nuevo nombre
+ cp -r nombCarp nombCarp 🔸 COPIAR carpeta con contenido
+
+ find J\* 🔸 BUSCA todos los archivos que empiecen con j
+</code></pre>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+<h1 id="ps-procesos">ps &gt; procesos</h1>
+<pre><code class="language-bash"> kill nroProcesoId 🔸 ELIMINA el proceso
+
+ code . 🔸 ABRE el archivo visual studio code
+ code ubiArch 🔸 ABRE archivo en visual studio code
+
+ alias 🔸 MUESTRA los alias existentes
+ alias nombAlias=&quot;contenido&quot; 🔸 CREA un alias
+ alias nombAlias=&quot;touch Hola.txt&quot; 🔸 CREA un alias
+ unalias 🔸 ELIMINA el alias
+</code></pre>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+<h1 id="configuración-global-inicial-de-git">configuración GLOBAL inicial de git</h1>
+<pre><code class="language-bash"> git config --global user.name &quot;FerSosa&quot; 🔸 NOMBRE de usuario
+ git config --global user.email &quot;user@fer&quot; 🔸 EMAIL
+ git config --global user.email &quot;fer.9cba2@gmail.com&quot; 🔸 EMAIL
+ git config --global core.editor &quot;code --await&quot; 🔸 INDICA nuestro editor por defecto
+ git config --global -e 🔸 MUESTRA las configuración global
+ git config --global core autocrlf true/input 🔸 como TRATAR lo saltos de linea con windows/mac
+ git config --global -h 🔸 LISTA de todas las configuraciones
+</code></pre>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+<h1 id="comandos-para-git">🔻 Comandos para GIT</h1>
+<p>reps (repositorio) | nA/nC (nombre Archivo/Carpeta)</p>
+<h3>FLUJOS DE TRABAJO &gt; SUS ESTADOS</h3>
+<table>
+<thead>
+<tr>
+<th>directorio/miPc</th>
+<th>index/staging</th>
+<th>HEAD/local</th>
+<th>GitHub/remote</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>modified (add)</td>
+<td>staged (commit)</td>
+<td>committed (push)</td>
+<td>remote (pull)</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-bash"> git init 🔸️ INICIA un repositorio git en directorio
+
+ git status 🔸️ VERIFICA el estado del repositorio
+ git status -s 🔸️ RESUME de verificación el estado del reps
+
+ git diff 🔸️ MUESTRA los cambios realizados
+ git diff --staged 🔸️ MUESTRA los cambios realizados detallados
+
+ git add nomAr 🔸️ AGREGA a staged
+
+ git rm nomAr 🔸️ ELIMINA el archivo sin tener que declarar
+ git rm --cachet &quot;nA&quot; 🔸️ VUELVE al directorio
+
+ git mv nomAr nomAr-nvo 🔸️ RENOMBRA archivo sin tener que declarar
+
+ git log 🔸️ MUESTRA historial de commit hechos
+ git log -- oneline 🔸️ MUESTRA historial de commit en una linea- `git log -p 🔸️ MUESTRA historial de commit y los cambios
+
+ git commit 🔸️ REGISTRA el cambio
+ git commit -m &quot;mensaje&quot; 🔸️ AGREGA al repositorio con msj
+ git commit --amend -m &quot;nvo mensaje`🔸️ CAMBIA el msj de commit (hacer solo e repositorio local y el mas reciente)
+ git commit --amend --no-edit 🔸️ GUARDA los cambios sin editar el ultimo msj de commit subir
+</code></pre>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+<h1 id="tipos-de-commits">Tipos de commits</h1>
+<table>
+<thead>
+<tr>
+<th>Commits</th>
+<th>Características</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feat</td>
+<td>Nueva característica</td>
+</tr>
+<tr>
+<td>Fix</td>
+<td>Corrección de errores</td>
+</tr>
+<tr>
+<td>Merge</td>
+<td>Combinación de ramas</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>Archivos borrados</td>
+</tr>
+<tr>
+<td>Docs</td>
+<td>Documentación</td>
+</tr>
+<tr>
+<td>Style</td>
+<td>Cambios de estilo (formateo, comas, etc.)</td>
+</tr>
+<tr>
+<td>Refactor</td>
+<td>Refactorización del código</td>
+</tr>
+<tr>
+<td>Test</td>
+<td>Añadir o corregir tests</td>
+</tr>
+<tr>
+<td>Chore</td>
+<td>Tareas de mantenimiento</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<pre><code class="language-bash"> git reset --hard HEAD~1 🔸 DESHACER(elimina) el ultimo registro/commit
+ git reset --soft HEAD~1 🔸 DESHACER(elimina) el ultimo registro/commit
+ soft 🔸 MANTIENE los cambios de los archivos
+ hard 🔸 MANTIENE los cambios de los archivos
+ HEAD 🔸 ULTIMO realizado
+ ~1 🔸 CANTIDAD de pasos en el historial
+</code></pre>
+<hr>
+<pre><code class="language-bash"> git branch 🔸 MUESTRA ramas (nomR = nombreDeRama)
+ git branch nomR 🔸 CREA una rama nueva
+ git branch -d nomR 🔸 ELIMINA rama desde otra rama en (directorio)
+ git branch -m nomR_nva 🔸 CAMBIA nombre de rama dentro de la rama
+ git branch -m nomR nomR_nva 🔸 CAMBIA nombre por nombre nuevo
+
+ git checkout &quot;nomR&quot; 🔸 CAMBIA de rama
+ git checkout main 🔸 CAMBIA de rama inicial
+ git checkout -b &quot;nomR&quot; 🔸 CREA, NOMBRA y se COLOCA en la rama nueva
+
+ git switch &quot;nomR&quot; 🔸 CAMBIA de rama
+ git switch nomR 🔸 CAMBIA de rama
+
+ git marge nomR 🔸 COMBINA rama (a la rama donde se encuentra)
+ git marge --continue 🔸 RESUELVE CONFLICTO una vez aceptado
+
+ git clonar link 🔸 CLONAR el repositorio de GitHub
+
+ git remote 🔸 MUESTRA el nombre del repositorio remoto
+ git remote -v 🔸 MUESTRA mas detalles del repositorio remoto
+
+ git push origin main 🔸 ENVIAR cambios de repositorio local a GitHub
+ git push -u origin nomR 🔸 ENVIAR cambios de repositorio local a GitHub
+ git push origin nomR 🔸 ELIMINA rama de repositorio local a GitHub
+ git push origin --delete html
+ origin = NOMBRE asignado al repositorio remoto clonado
+ main = NOMBRE de rama modificada
+
+ git pull 🔸 DESCARGAR cambios del contenido de GitHub
+
+ git fetch origin 🔸 VERIFICAR cambios del contenido de GitHub
+ git checkout origin/main 🔸 CAMBIAR de la rama loca a la rama del repositorio remoto
+
+ bifurca/fork (un repositorio) crear una copiar del repositorio remoto de tu cuenta GitHub
+
+ pull request 🔸 solicitud de combinar tus cambios con el repositorio original del proyecto
+ git remote 🔸 MUESTRA los orígenes remotos del repositorio
+</code></pre>
+<hr>
+<pre><code class="language-bash"> git tag 🔸 MUESTRA las etiquetas
+ git tag nroVersion 🔸 CREA las etiquetas
+ git tag -d nroVersion 🔸 ELIMINA las etiquetas
+ git show nroVersion 🔸 MUESTRA info de una etiquetas
+
+ git reflog
+</code></pre>
+<h2>Para desactivar el paginado globalmente para diff:</h2>
+<pre><code class="language-bash"> git config --global pager.diff false
+</code></pre>
+<h3>Alias</h3>
+<p>🔻log-simple</p>
+<pre><code>  git config --global alias.log-simple &quot;log --oneline --graph --all&quot;
+</code></pre>
+<p>🔻log-mejorado</p>
+<pre><code>  git config --global alias.log-mejorado &quot;log --oneline --all --graph --pretty=format:'%C(auto)%h%d %s %C(black)%C(bold)%cr'&quot;
+</code></pre>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+<h1 id="git-hub">GitHub</h1>
+<h2>Creado de GitHub a Local</h2>
+<pre><code class="language-bash"> git clone https://github.com/fergsosa/clon-carpeta.git 🔸 clonar carpeta
+ git push origin main 🔸 subir archivo a GitHub
+ git pull 🔸 trae actualización/cambios del repositorio Remoto a Local
+ 🔺🔺🔺  🔸 trae repositorio y fusiona (merge) a la rama actual
+
+ git fetch 🔸 trae actualización/cambios del repositorio Remoto a Local
+ 🔺🔺🔺   🔸 trae repositorio y fusiona (merge) a la rama actual
+ git switch --detach origin/main 🔸 muestra las modificaciones antes del pull
+
+ git push origin --delete ramaBorrar 🔸 borrar rama de forma remota
+</code></pre>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+<h1 id="creado-de-Local-a-git-hub">Creado de Local a GitHub</h1>
+<ul>
+<li>se crea repositorio vació</li>
+</ul>
+<h3>🔻comando de conecta repositorio local con github</h3>
+<pre><code class="language-bash">git remote add origin https://github.com/fergsosa/repositorio-subido-local.git
+git branch -M main 🔸
+git push -u origin main 🔸 configura para usar solo &quot;git push&quot;
+git remote -v 🔸 muestra lo que se puede hacer con remote
+</code></pre>
+<h3>🔻comando de cambie repositorio ya configurado</h3>
+<pre><code class="language-bash">git remote add origin https://github.com/fergsosa/repo-VIEJO.git`
+git remote set-url origin https://github.com/fergsosa/repo-NUEVO.git`
+
+git push -u origin main 🔸 configura para usar solo &quot;git push&quot;
+git push --set-upstream origin ramaMia 🔸 subir rama creada al GitHub que no tenia
+
+git 🔸 inicializar
+</code></pre>
+<h2>Proceso: Pull Request</h2>
+<pre><code class="language-bash">1. git clone` 🔸 Clonar el Repositorio
+</code></pre>
+<ul>
+<li><strong>Objetivo:</strong> Obtener una copia local del repositorio remoto.</li>
+<li><strong>Resultado:</strong> Directorio local con el contenido del repositorio remoto.</li>
+</ul>
+<pre><code class="language-bash">2. git checkout -b` 🔸 Crear una Nueva Rama
+</code></pre>
+<ul>
+<li><strong>Obj:</strong> Trabajar en cambios de forma aislada sin afectar la rama principal.</li>
+<li><strong>Res:</strong> Nueva rama creada y activada para realizar cambios.</li>
+</ul>
+<pre><code class="language-bash">3. git add y git commit` 🔸 Hacer Cambios y Confirmarlos
+</code></pre>
+<ul>
+<li><strong>Obj:</strong> Realizar y registrar cambios en el código.</li>
+<li><strong>Res:</strong> Cambios preparados (git add) y confirmados (git commit) en la nueva rama.</li>
+</ul>
+<pre><code class="language-bash">4. git push origin nombre-de-la-rama` 🔸 Subir la Rama al Repositorio Remoto
+</code></pre>
+<ul>
+<li><strong>Obj:</strong> Subir los cambios de la nueva rama al repositorio remoto para compartirlos.</li>
+<li><strong>Res:</strong> Nueva rama con los cambios subida al repositorio remoto.</li>
+</ul>
+<pre><code>5.  Crear el Pull Request en GitHub
+</code></pre>
+<ul>
+<li>A. Navegar al repositorio en GitHub:
+<ul>
+<li><strong>Obj:</strong> Acceder a la interfaz web del repositorio para crear el pull request.</li>
+<li><strong>Res:</strong> Pantalla del repositorio en GitHub.</li>
+</ul>
+</li>
+<li>B. Hacer clic en &quot;Compare &amp; pull request&quot; o ir a <code>&quot;Pull requests&quot; &gt; &quot;New pull request&quot;</code>:
+<ul>
+<li><strong>Obj:</strong> Iniciar el proceso de creación del pull request.</li>
+<li><strong>Res:</strong> Formulario para comparar ramas y crear el pull request.</li>
+</ul>
+</li>
+<li>C. Seleccionar la rama de base y la de comparación:
+<ul>
+<li><strong>Obj:</strong> Definir las ramas involucradas en el pull request.</li>
+<li><strong>Res:</strong> Ramas seleccionadas para revisión.</li>
+</ul>
+</li>
+<li>D. Añadir un título y una descripción:
+<ul>
+<li><strong>Obj:</strong> Proveer información clara y detallada sobre los cambios realizados.</li>
+<li><strong>Res:</strong> Pull request con título y descripción informativa.</li>
+</ul>
+</li>
+<li>E. Hacer clic en <code>&quot;Create pull request&quot;</code>:
+<ul>
+<li><strong>Obj:</strong> Enviar el pull request para revisión.</li>
+<li><strong>Res:</strong> Pull request creado y listo para ser revisado por otros colaboradores.</li>
+</ul>
+</li>
+</ul>
+<h2>Notas Adicionales</h2>
+<h3>Mantener la Rama Actualizada:</h3>
+<ul>
+<li><strong>Obj:</strong> Asegurar que la rama de trabajo está sincronizada con la rama base.</li>
+<li><strong>Comandos:</strong> git rebase o git merge</li>
+<li><strong>Res:</strong> Rama de trabajo actualizada con los últimos cambios de la rama base.</li>
+</ul>
+<h3>Resolver Conflictos:</h3>
+<ul>
+<li><strong>Obj:</strong> Solucionar discrepancias entre cambios en diferentes ramas.</li>
+<li><strong>Comandos:</strong> Dependiendo del conflicto, usar herramientas de merge conflict y comandos como git add y git commit.</li>
+<li><strong>Res:</strong> Conflictos resueltos y cambios preparados para ser fusionados.</li>
+</ul>
+<p>Estas características te ayudarán a entender cada paso del proceso y su importancia en la creación y envío de un pull request en GitHub.</p>
+<p><a href="#temas"><br>
+🔼 Regresar</a></p>
+
+    </main>
+    <hr>
+    <aside>
+      <h2>Categorías</h2>
+      <h3>Otros articulos</h3>
+      <ul>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/HTMLMd/">
+              HTML
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/NodeMd/">
+              Node.js
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/MarkdownMd/">
+              Markdown
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/GitMd/">
+              Git
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/ReactMd/">
+              React
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/EleventyMd/">
+              Eleventy
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_NodeMd/">
+              X-Node.js
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_HTMLMd/">
+              X-HTML
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_MarkdownMd/">
+              X-Markdown
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_GitMd/">
+              X-Git
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_ReactMd/">
+              X-React
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_EleventyMd/">
+              X-Eleventy
+            </a>
+          </li>
+        
+      </ul>
+    </aside>
+    <footer>
+  <p>Diseño hecho ©2024 Fernando Sosa</p>
+</footer>
+    <script src="/eleventy-blog-started/js/main.js" type="module"></script>
+  </body>
+</html>
