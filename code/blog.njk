@@ -1,0 +1,17 @@
+---
+layout: layout-page.njk
+title: Página de Contacto
+description: Meta descripción de la página de contacto
+---
+
+<section class="ultimas-noticias">
+  {% for post in collections.blog %}
+    <a href="{{ post.url }}" class="box-link">
+      <img src="{{ post.data.img }}" alt="img"/>
+      <h3>{{ post.data.title }}</h3>
+      <p>
+        {{ post.data.date }}
+      </p>
+    </a>
+  {% endfor %}
+</section>

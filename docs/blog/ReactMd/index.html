@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <meta name="description" content="Ideas principales de React">
+    <link rel="icon" href="/eleventy-blog-started/img/icono.png">
+    <link rel="stylesheet" href="/eleventy-blog-started/css/styles-post.css">
+  </head>
+  <body>
+    <header>
+  <nav class="navbar">
+  <div class="grir-parent">
+    <div class="grid-item">
+      <div class="logo">
+        <a href="/eleventy-blog-started/">
+          <img src="/eleventy-blog-started/img/logo-header.svg" alt="logo">
+        </a>
+      </div>
+      <ul class="menu">
+        <li>
+          <a href="/eleventy-blog-started/">Inicio</a>
+        </li>
+        <li>
+          <a href="/eleventy-blog-started/blog">Blog</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+    <main>
+      <h1>React</h1>
+<p><img src="/eleventy-blog-started/img/React.svg" alt="React"></p>
+<p>🔻<strong>react</strong> 👉 Componentes ,Props(Propiedades) ,Estado(State)</p>
+<p>🔻<strong>Ciclo de vida del componente</strong> 👉 Montaje ,Actualización ,Desmontaje</p>
+<p>🔻<strong>JSX (JavaScript XML)</strong> 👉 Sintaxis para escribir componentes.</p>
+<p>🔻<strong>Renderizado condicional</strong> 👉 componentes basado en condiciones.</p>
+<p>🔻<strong>Manejo de eventos</strong> 👉 onClick.</p>
+<p>🔻<strong>Listas y keys:</strong></p>
+<p>🔻<strong>Refs</strong> 👉 acceso a nodos del DOM</p>
+<p>🔻<strong>HOC</strong> 👉 Componente de orden superior</p>
+<p>🔻<strong>Virtual DOM</strong> 👉 Representación eficiente de la interfaz.</p>
+<p>🔻<strong>Context API</strong> 👉 Gestión de estado en React.</p>
+<p>🔻<strong>Hooks</strong> 👉 funciones para componentes</p>
+<ul>
+<li>useState, useEffect, useContext, useReducer,</li>
+<li>useImperativeHandle, useLayoutEffect, useDebugValue.</li>
+<li><strong>memorización</strong> ➡️ useCallback, memo, useMemouseRef.</li>
+</ul>
+<p>🔻<strong>React Router</strong> 👉 librería rutas.</p>
+<ul>
+<li>BrowserRouter, Route, Switch, Link, NavLink,</li>
+<li>Redirect, withRouter, useHistory, useLocation, useParams</li>
+</ul>
+<p>🔻<strong>Redux</strong> 👉 biblioteca de gestión de estado.</p>
+<ul>
+<li>Store, Reducer, Action, Dispatch, Middleware, Provider,</li>
+<li>connect, mapStateToProps, mapDispatchToProps, combineReducers, createStore</li>
+</ul>
+<h2>atajos</h2>
+<pre><code>🔻imr imrs imrse
+import React, { useState, useEffect } from 'react';
+
+🔻 usf
+const [🔹,🔹set] = useState(🔹);
+
+🔻 sfc
+const🔹 = () =&gt; {
+return ( 🔹 );
+}
+export default🔹;
+
+🔻uef
+useEffect(() =&gt; {
+🔹
+}, []);
+</code></pre>
+<h2>consola</h2>
+<p><code>npx create-react-app</code>👉 crear proyecto &quot;REACT&quot;</p>
+<p><code>npx create-expo-app</code>👉 crear proyecto &quot;EXPO&quot;</p>
+<p><code>npx create-gatsby</code>👉 crear proyecto &quot;GATSBY&quot; (1.2MG)</p>
+<p><code>npm install --save-dev parcel</code>👉 crear proyecto &quot;PARCEL&quot; (4.5MG / sin map 1.9MG)</p>
+<p><a href="https://parceljs.org/getting-started/webapp/">PARCEL</a></p>
+<h2>Recomendados Ligeros</h2>
+<h3>ServerSideRendering</h3>
+<p><code>npx create-next-app</code>👉 crear proyecto <em>NEXT</em> (0.50MG)</p>
+<p><code>npx create-remix</code>👉 crear proyecto <em>REMIX</em> (0.25MG)</p>
+<h3>ClientSideRendering</h3>
+<p><code>npm create vite@latest</code> &gt; crear proyecto &quot;VITE&quot; (0.15MG)</p>
+<p><code>npm create vite@latest react-router-6 --template -react</code></p>
+<p><a href="https://vitejs.dev/guide/">Pagina Vite</a></p>
+<p><code>npm i (install)</code> 👉 instala</p>
+<p><code>npm run dev || npm start</code> 👉 Inicia servidor de desarrollo</p>
+<p><code>npm install react-router-dom</code> 👉 dependencias</p>
+<p><code>npm run build</code> 👉 Compila la aplicación.</p>
+<p><code>npm test</code> 👉 Ejecuta pruebas definidas.</p>
+<p><code>npm run eject</code> 👉 Expone configuración avanzada.</p>
+<h2>Fundamentos</h2>
+<p>🔻<strong>Elemento en React</strong> 👈 Interfaz virtual representando DOM.</p>
+<ul>
+<li>Unidades más pequeñas en React.</li>
+<li>Definen lo que se ve en la pantalla.</li>
+</ul>
+<p>🔻<strong>Diferencias</strong> 👈 Abstracción vs. Instancia reutilizable.</p>
+<ul>
+<li>Los componentes en React están &quot;hechos&quot; de elementos.</li>
+</ul>
+<p>🔻<strong>Elementos HTML</strong> 👈 JSX representando estructura HTML.</p>
+<ul>
+<li>Con JSX, puedes crear y usar cualquier elemento HTML.</li>
+</ul>
+<p>🔻<strong>Reconocer</strong> 👈 Etiqueta vs. Función personalizada.</p>
+<ul>
+<li>En JSX, los elementos HTML se representan con etiquetas en letras minúsculas.</li>
+<li>Los componentes definidos por el usuario comienzan con una letra mayúscula.</li>
+</ul>
+<p>🔻<strong>Atributos</strong> 👈 Propiedades que configuran elementos.</p>
+<ul>
+<li>Puedes agregar atributos a tus elementos en JSk para especificar ciertas características.</li>
+<li>Pero... algunos se escriben de forma distinta si los comparamos con HTML.</li>
+</ul>
+<h2>Diferencia de Escritura</h2>
+<!-- ``` -->
+<ul>
+<li>class 👉 className=&quot;&quot; || for 👉 htmlFor=&quot;&quot;</li>
+<li camelCase="">Style 👉 style</li>
+<li>Style especifico 👉 style{ {color:&quot;red&quot;} }</li>
+</ul>
+<!-- ``` -->
+<ul>
+<li>
+<p><strong>JSX Anidado</strong> 👉 Estructura jerárquica con elementos.</p>
+<ul>
+<li>Al igual que en HTML, los elementos pueden ser anidados en JSX para formar estructuras más complejas.</li>
+</ul>
+</li>
+<li>
+<p><strong>Renderizar</strong> 👉 Transformar en interfaz visual.</p>
+<p><code>&lt;div id=&quot;root&quot;🔸&gt; &lt;/div&gt;</code> 👈 HTML (raíz)</p>
+</li>
+</ul>
+<pre><code class="language-js">  import ReactDOM from &quot;react-dom&quot; ; 👈 Paquete
+  const elemento🔹 = &lt;h1&gt;¡Hola, Mundo!&lt;/h1&gt;;
+  ReactDOM. render(
+  elemento🔹,
+  document.getE1ementById(&quot;root&quot;)🔸
+  )
+</code></pre>
+<ul>
+<li><code>Self-closing tags</code> 👉 Etiquetas sin cierre explícito.</li>
+</ul>
+<p>Elemento que solo posee una etiqueta de apertura ya que no contiene texto u otros elementos.</p>
+<p><code>&lt;img src=&quot;logo.png&quot; alt=&quot;Mi imagen&quot; /&gt;</code></p>
+<h3 JS="">JavaScript en JSX &gt;</h3>
+<p>Puedes escribir cualquier expresión válida de JavaScript entre las llaves y su valor será reemplazado.</p>
+<pre><code>let nombre = &quot;Gino&quot; ;
+ &lt;p&gt;Su nombre es: {nombre.toUpperCase()}&lt;/p&gt; variable
+ &lt;p&gt;E1 resultado es: {5 * 6}&lt;/p&gt; función
+</code></pre>
+<h2>COMPONENTES FUNCIONALES</h2>
+<h2>COMPONENTES DE CLASE</h2>
+<p>🔻Componente de Clase</p>
+<ul>
+<li>Clase de ES6 (JavaScript moderno) que retorna un elemento JSX.
+todo|&gt; Características</li>
+<li>Deben extender React.Component.</li>
+<li>Deben tener un método render() para</li>
+<li>retornar un elemento de JSX.</li>
+<li>Pueden recibir props si es necesario.</li>
+</ul>
+<p>🔻Método</p>
+<ul>
+<li>Función asociada a un componente que puede acceder y usar su estado.</li>
+</ul>
+<p>🔻Método render()</p>
+<ul>
+<li>Método que retorna la estructura del componente en JSX.</li>
+<li>Es el único método obligatorio para un componente de clase en React.</li>
+</ul>
+<p>🔻Estructura</p>
+<p>? COMPONENTE DE CLASE &gt; Método &gt; Estado</p>
+<pre><code>import React from &quot;react&quot;;
+class NombreComponente extends React.Component {
+  render() {
+  return &lt;p&gt;Mi Componente&lt;/p&gt;;
+};}
+</code></pre>
+<h1>Conceptos</h1>
+<p>🔻<strong>react</strong> 👉 <em>combina HTML con JS</em></p>
+<ul>
+<li>estructura mas fácil de visualizer</li>
+<li>Errores y de advertencias mas útiles</li>
+</ul>
+<p>🔻<strong>Componentes</strong> 👉 <em>Bloques reutilizables de interfaz.</em></p>
+<ul>
+<li>Son bloques de construcción fundamentales en React.</li>
+<li>Pueden ser funcionales o basados en clases.</li>
+<li>Representan partes de la interfaz de usuario.</li>
+</ul>
+<p>🔻<strong>Props (Propiedades)</strong> 👉 <em>Datos pasados a componentes.</em></p>
+<ul>
+<li>Son datos que se pasan de un componente padre a un componente hijo.</li>
+<li>Los props son inmutables.</li>
+</ul>
+<p>🔻<strong>Estado (State)</strong> 👉 <em>Datos dinámicos manejados internamente.</em></p>
+<ul>
+<li>Representa la información interna de un componente.</li>
+<li>Puede cambiar a lo largo del tiempo en respuesta a eventos.</li>
+</ul>
+<p>🔻<strong>Ciclo de vida del componente:</strong></p>
+<ul>
+<li>gestionan el ciclo de vida de un componente.</li>
+<li>Métodos como</li>
+<li>componentDidMount, ( Montaje )</li>
+<li>componentDidUpdate, ( Actualización )</li>
+<li>componentWillUnmount, ( Desmontaje )</li>
+</ul>
+<p>🔻<strong>JSX (JavaScript XML)</strong> 👉 <em>Sintaxis para escribir componentes.</em></p>
+<ul>
+<li>Sintaxis de extensión de JavaScript utilizada con React para describir la interfaz de usuario.</li>
+</ul>
+<p>🔻<strong>Renderizado condicional</strong> 👉 <em>Mostrar componentes basado en condiciones.</em></p>
+<ul>
+<li>Permite mostrar diferentes componentes o elementos según una condición.</li>
+</ul>
+<p>🔻<strong>Manejo de eventos</strong> 👉 <em>Interacciones del usuario.</em></p>
+<ul>
+<li>Se utilizan para gestionar interacciones del usuario, como clics o cambios de entrada.</li>
+</ul>
+<p>🔻<strong>Listas y keys:</strong></p>
+<ul>
+<li>Para representar listas de elementos en React.</li>
+<li>Cada elemento en la lista debe tener una &quot;key&quot; única.</li>
+</ul>
+<p>🔻<strong>Levantamiento de estados (Lifting State Up):</strong></p>
+<ul>
+<li>Patrón en React donde el estado se mueve hacia arriba en la jerarquía de componentes.</li>
+</ul>
+<p>🔻<strong>Context API:</strong></p>
+<ul>
+<li>Proporciona una forma de pasar datos a través del árbol de componentes sin tener que pasar props manualmente a través de cada nivel.</li>
+</ul>
+<p>🔻<strong>Hooks</strong> 👉 <em>Funciones para agregar carac a comp funcionales.</em></p>
+<ul>
+<li>Introducidos en React 16.8 para permitir el uso de estado y otras características en componentes funcionales.</li>
+<li>Algunos hooks comunes incluyen useState y useEffect.</li>
+</ul>
+<p>🔻<strong>React Router:</strong></p>
+<ul>
+<li>Librería que facilita la navegación en una aplicación React mediante el manejo de rutas.</li>
+</ul>
+<p>🔻<strong>Refs:</strong></p>
+<ul>
+<li>Permiten acceder directamente a los nodos del DOM o a instancias de componentes creados.</li>
+</ul>
+<p>🔻<strong>HOC (Higher Order Component):</strong></p>
+<ul>
+<li>Componente que toma un componente y devuelve un nuevo componente con funcionalidad adicional.</li>
+</ul>
+<p>🔻<strong>Virtual DOM</strong> 👉 <em>Representación eficiente de la interfaz.</em></p>
+<ul>
+<li>Representación en memoria de la estructura de un DOM.</li>
+<li>React compara el Virtual DOM con el DOM real para determinar los cambios y actualizar eficientemente la interfaz de usuario.</li>
+</ul>
+<h2>CONTEXT</h2>
+<p>context 👉 Estado actual de la aplicación.</p>
+<h2>REDUX</h2>
+<pre><code class="language-js">npm install --save @redux-devtools/extension
+import { devToolsEnhancer } from '@redux-devtools/extension';
+devToolsEnhancer()
+</code></pre>
+<h1><strong>Hooks</strong> ⬇️ funciones para componentes</h1>
+<h2>🔻useState:</h2>
+<p>Permite manejar el estado en componentes funcionales.</p>
+<pre><code class="language-js">const [state, setState] = useState(🔸estadoInicial);
+estado🔺 🔺actualizador del estado
+</code></pre>
+<h2>🔻useEffect:</h2>
+<p>Permite hacer uso del ciclo de vida en un componente funcional.</p>
+<p>similar a componentDidMount y componentDidUpdate en componentes de clase.</p>
+<pre><code class="language-js">useEffect(() =&gt; {
+  !console.log(&quot;Fase de Montaje&quot;);
+}, []); 👈 se ejecuta una sola vez
+}, [stateDependencia]); 👈 se ejecuta cuando cambia de estado
+
+useEffect(() =&gt; {
+  !console.log(&quot;Fase de Actualizado&quot;);
+});👈 se ejecuta cuando se redenriza componente 🔄️
+
+useEffect(() =&gt; {
+  return () =&gt; {
+    !console.log(&quot;Fase de Desmontaje&quot;);
+  }
+});
+</code></pre>
+<h2>🔻useContext:</h2>
+<p>Permite el consumo de un contexto en componentes funcionales.</p>
+<pre><code class="language-js">const contextValue = useContext(MyContext);
+</code></pre>
+<h2>🔻useReducer:</h2>
+<p>Alternativa a useState para manejar estados complejos y lógica de actualización en componentes funcionales.</p>
+<pre><code class="language-js">const [state, dispatch] = useReducer(reducer, initialState);
+</code></pre>
+<h2>MEMORIZACIÓN</h2>
+<h2>🔻memorización &gt; usar con cautela</h2>
+<ul>
+<li>useCallback 👉 memoriza funciones puras</li>
+<li>memo 👉 memoriza componente completo</li>
+<li>useMemo 👉 memoriza valores calculados</li>
+</ul>
+<h2>🔻useCallback:</h2>
+<p>Memoriza funciones para evitar que se vuelvan a crear en cada renderización.</p>
+<pre><code class="language-js">const memoizedCallback = useCallback(() =&gt; {
+  ...
+}, [dependencies]);
+</code></pre>
+<h2>🔻useMemo:</h2>
+<p>Memoriza un valor calculado para evitar su recálculo en cada renderización.</p>
+<pre><code class="language-js">const memoizedValue = useMemo(() =&gt; computeExpensiveValue(a, b), [a, b]);
+</code></pre>
+<h2>🔻useRef:</h2>
+<p>Crea un objeto mutable que persiste a lo largo de renderizaciones y no provoca una nueva renderización cuando cambia.</p>
+<pre><code class="language-js">const myRef = useRef(initialValue);
+</code></pre>
+<h2>🔻useImperativeHandle:</h2>
+<p>Personaliza el valor o las funciones expuestas por un useRef.</p>
+<pre><code class="language-js">useImperativeHandle(ref, () =&gt; ({
+! Funciones expuestas
+}), [dependencies]);
+</code></pre>
+<h2>🔻useLayoutEffect:</h2>
+<p>Similar a useEffect, pero se ejecuta de manera síncrona después de todas las mutaciones del DOM.</p>
+<pre><code class="language-js">useLayoutEffect(() =&gt; {
+   Efecto sincrónico después de las mutaciones del DOM
+}, [dependencies]);
+</code></pre>
+<h2>🔻useDebugValue:</h2>
+<p>Muestra un valor en las DevTools cuando se inspecciona un gancho personalizado.</p>
+<pre><code class="language-js">useDebugValue(value);
+</code></pre>
+<h1>React Router⬇️ Librería</h1>
+<p>🔻<strong>BrowserRouter</strong> 👉 <em>Enrutamiento basado en navegador.</em></p>
+<ul>
+<li>Componente principal que envuelve la aplicación y habilita el enrutamiento basado en el navegador.</li>
+</ul>
+<p>🔻<strong>Route</strong> 👉 <em>Define renderización basada en ruta.</em></p>
+<ul>
+<li>Define cómo se renderiza un componente en función de la ruta actual.</li>
+</ul>
+<p>🔻<strong>Switch</strong> 👉 <em>Renderiza la primera coincidencia.</em></p>
+<ul>
+<li>Renderiza el primer <Route> o <Redirect> que coincide con la ubicación actual.</Redirect></Route></li>
+</ul>
+<p>🔻<strong>Link</strong> 👉 <em>Navegación sin recarga completa.</em></p>
+<ul>
+<li>Proporciona una forma de navegar entre rutas sin recargar la página completa.</li>
+</ul>
+<p>🔻<strong>NavLink</strong> 👉 <em>Enlaces con estilos activos.</em></p>
+<ul>
+<li>Similar a Link, pero proporciona estilos adicionales cuando su ruta coincide con la ubicación actual.</li>
+</ul>
+<p>🔻<strong>Redirect</strong> 👉 <em>Redirección automática basada en ruta.</em></p>
+<ul>
+<li>Redirige automáticamente a otra ruta cuando se renderiza.</li>
+</ul>
+<p>🔻<strong>withRouter</strong> 👉 <em>Conecta componente a ubicación.</em></p>
+<ul>
+<li>HOC (Higher Order Component) que conecta un componente que no está directamente bajo una ruta a la ubicación del enrutador.</li>
+</ul>
+<p>🔻<strong>useHistory</strong> 👉 <em>Acceso al historial del navegador.</em></p>
+<ul>
+<li>Hook que proporciona acceso al objeto de historial del navegador, permitiendo la navegación programática.</li>
+</ul>
+<p>🔻<strong>useLocation</strong> 👉 <em>Acceso a la ubicación actual.</em></p>
+<ul>
+<li>Hook que proporciona acceso al objeto de ubicación actual.</li>
+</ul>
+<p>🔻<strong>useParams</strong> 👉 <em>Obtén parámetros de la URL.</em></p>
+<ul>
+<li>Hook que devuelve un objeto con pares clave-valor de los parámetros de la URL.</li>
+</ul>
+<h1>Redux ⬇️ biblioteca</h1>
+<p>biblioteca de gestión de estado que ayuda a mantener el estado de la aplicación de manera centralizada y predecible, facilitando la manipulación y actualización de los datos en toda la aplicación de React.</p>
+<p>🔻<strong>Store</strong> 👉 <em>Almacén centralizado de estado.</em></p>
+<ul>
+<li>Almacén centralizado que contiene el estado global de la aplicación.</li>
+</ul>
+<p>🔻<strong>Reducer</strong> 👉 <em>Cambios de estado por acción.</em></p>
+<ul>
+<li>Función pura que especifica cómo cambia el estado en respuesta a una acción.</li>
+</ul>
+<p>🔻<strong>Action</strong> 👉 <em>Objeto que describe intención.</em></p>
+<ul>
+<li>Objeto que describe una intención de cambiar el estado. Debe tener una propiedad type que indique el tipo de acción.</li>
+</ul>
+<p>🔻<strong>Dispatch</strong> 👉 <em>Despacha acciones para cambios.</em></p>
+<ul>
+<li>Método proporcionado por el store que se utiliza para despachar acciones y desencadenar cambios en el estado.</li>
+</ul>
+<p>🔻<strong>Middleware</strong> 👉 <em>Funciones para lógica intermedia.</em></p>
+<ul>
+<li>Funciones que se ejecutan entre el envío de una acción y la actualización del estado. Se utilizan para manejar lógica asíncrona, realizar registros, etc.</li>
+</ul>
+<p>🔻<strong>Provider</strong> 👉 <em>Proporciona acceso global al store.</em></p>
+<ul>
+<li>Componente de React que permite que los componentes secundarios accedan al store de Redux.</li>
+</ul>
+<p>🔻<strong>connect</strong> 👉 <em>Conecta componente a Redux.</em></p>
+<ul>
+<li>Función que conecta un componente de React a Redux, permitiéndole acceder al estado y despachar acciones.</li>
+</ul>
+<p>🔻<strong>mapStateToProps</strong> 👉 <em>Mapea estado a props.</em></p>
+<ul>
+<li>Función que mapea una porción del estado de Redux a las props de un componente.</li>
+</ul>
+<p>🔻<strong>mapDispatchToProps</strong> 👉 <em>Mapea acciones a props.</em></p>
+<ul>
+<li>Función que mapea las acciones de Redux a las props de un componente.</li>
+</ul>
+<p>🔻<strong>combineReducers</strong> 👉 <em>Combina múltiples reducers en uno.</em></p>
+<ul>
+<li>Función que combina varios reducers en uno solo para gestionar diferentes partes del estado de la aplicación.</li>
+</ul>
+<p>🔻<strong>createStore</strong> 👉 <em>Crea un nuevo store Redux.</em></p>
+<ul>
+<li>Función que crea un nuevo store de Redux.</li>
+</ul>
+
+    </main>
+    <hr>
+    <aside>
+      <h2>Categorías</h2>
+      <h3>Otros articulos</h3>
+      <ul>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/HTML/">
+              HTML
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/NodeMd/">
+              Node.js
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/MarkdownMd/">
+              Markdown
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/GitMd/">
+              Git
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/ReactMd/">
+              React
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/EleventyMd/">
+              Eleventy
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_NodeMd/">
+              X-Node.js
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_HTML/">
+              X-HTML
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_MarkdownMd/">
+              X-Markdown
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_GitMd/">
+              X-Git
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_ReactMd/">
+              X-React
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_EleventyMd/">
+              X-Eleventy
+            </a>
+          </li>
+        
+      </ul>
+    </aside>
+    <footer>
+  <p>Diseño hecho ©2024 Fernando Sosa</p>
+</footer>
+    <script src="/eleventy-blog-started/js/main.js" type="module"></script>
+  </body>
+</html>
