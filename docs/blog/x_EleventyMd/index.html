@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-Eleventy</title>
+    <meta name="description" content="Ideas principales de Eleventy">
+    <link rel="icon" href="/eleventy-blog-started/img/icono.png">
+    <link rel="stylesheet" href="/eleventy-blog-started/css/styles-post.css">
+  </head>
+  <body>
+    <header>
+  <nav class="navbar">
+  <div class="grir-parent">
+    <div class="grid-item">
+      <div class="logo">
+        <a href="/eleventy-blog-started/">
+          <img src="/eleventy-blog-started/img/logo-header.svg" alt="logo">
+        </a>
+      </div>
+      <div class="menu">
+          <a href="/eleventy-blog-started/">Inicio</a>
+          <a href="/eleventy-blog-started/blog">Blog</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+    <main>
+      <h1>X-Eleventy</h1>
+<p><img src="/eleventy-blog-started/img/Eleventy.svg" alt="img"></p>
+<h2 id="temas">Temas</h2>
+<!-- [🔼 Regresar](#temas) -->
+<ul>
+<li><a href="#comandos-Pasos">Comandos/Pasos</a></li>
+<li><a href="#pasos-para-comenzar-un-proyecto">Pasos para comenzar un proyecto</a></li>
+<li><a href="#atajos-de-package-json">Atajos de <em>package.json</em></a></li>
+<li><a href="#instrucciones">Instrucciones</a></li>
+</ul>
+<p><a href="#temas">🔼 Regresar</a></p>
+<h2 id="Comandos-Pasos">Comandos/Pasos</h2>
+<h3>Trae dependencias</h3>
+<ol>
+<li><code>echo '# Page header' &gt; index.md</code>: crear un archivos Markdown <em>&quot;index.md&quot;</em></li>
+<li><code>npx @11ty/eleventy</code>: trae las dependencias</li>
+<li><code>npx @11ty/eleventy --serve</code>: servidor</li>
+</ol>
+<p><a href="#temas">🔼 Regresar</a></p>
+<h2 id="pasos-para-comenzar-un-proyecto">Pasos para comenzar un proyecto</h2>
+<ol>
+<li><code>npm init -y</code>: instala package.json de NodeJs.</li>
+<li><code>npm install @11ty/eleventy --save-dev</code>: dependencias.</li>
+<li><code>npx @11ty/eleventy --serve</code>: crea servidor (como live server).</li>
+<li><code>npm run clean</code>: borrar antes de desplegar/subir a producción.</li>
+</ol>
+<p><a href="#temas">🔼 Regresar</a></p>
+<h2 id="atajos-de-package-json">Atajos de <em>package json</em></h2>
+<pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;install&quot;: &quot;npm install @11ty/eleventy --save-dev&quot;,
+    &quot;start&quot;: &quot;npx @11ty/eleventy --serve --port=7777&quot;,
+    &quot;clean&quot;: &quot;rm -rf docs&quot;,
+    &quot;deploy&quot;: &quot;npx @11ty/eleventy --pathprefix=/&quot;,
+    &quot;deploy-subdomain&quot;: &quot;npx @11ty/eleventy --pathprefix=/SUB-DIRECTORY/&quot;
+  },
+</code></pre>
+<h1>Estructura de Carpetas</h1>
+<ul>
+<li>📂 code
+<ul>
+<li>🔻 Carpetas de origen de <em>@11ty</em></li>
+<li>📁 _data <em>( poder guardar datos tipo json )</em></li>
+<li>📁 _includes <em>( Estructura de página )</em></li>
+<li>🔻 Carpetas adicionales</li>
+<li>📁 css</li>
+<li>📁 img</li>
+<li>📁 js</li>
+</ul>
+</li>
+</ul>
+<p>Para contenido de páginas uso <strong>Nunjucks/YAML</strong></p>
+<p>Para todos artículos de blog uso <strong>Markdown</strong></p>
+<hr>
+<h1><strong>Subir proyectos a GitHub Pages</strong></h1>
+<h3><em>Starter Project</em> <em>11ty</em> + <em>GitHub Pages</em>.</h3>
+<p><a href="#temas">🔼 Regresar</a></p>
+<h2 id="instrucciones">Instrucciones</h2>
+<ol>
+<li>Clona este repositorio.<pre><code class="language-bash">git clone https://github.com/jonmircha/starter-project-eleventy-github-pages.git
+</code></pre>
+</li>
+<li>Instala las dependencias.<pre><code class="language-bash">npm install
+</code></pre>
+</li>
+<li>Iniciar el ambiente de desarrollo.<pre><code class="language-bash">npm start
+</code></pre>
+</li>
+<li>Comienza a crear el contenido de tu sitio.</li>
+<li>Cuando termines recuerda modificar en el <em><strong>package.json</strong></em> el contenido del comando <em><strong>deploy-subdomain</strong></em>, reemplazando el texto:<pre><code class="language-bash">--pathprefix=/subdirectory/
+</code></pre>
+por<pre><code class="language-bash">--pathprefix=/el-nombre-de-tu-repositorio/
+</code></pre>
+</li>
+<li>Limpia la carpeta docs y ejecuta tu despliegue:<pre><code class="language-bash">npm run clean
+npm run deploy-subdomain
+</code></pre>
+</li>
+<li>Crea un repositorio en tu cuenta de <em>GitHub</em>.</li>
+<li>Vincula tu carpeta con tu repositorio.</li>
+<li>Sube el contenido a <em>GitHub</em>.</li>
+<li>Configura el Servicio de <em>GitHub Pages</em>.</li>
+<li>Feliz despliegue 🥳 🦡🎈.</li>
+</ol>
+<p><a href="https://jonmircha.github.io/starter-project-eleventy-github-pages/">Aquí</a> puedes ver la demo de este <em>starter project</em>.</p>
+<p>También puedes ver mi Curso de <em>11ty</em> en <em>YouTube</em>, da clic a la siguiente imagen. 👇🏻</p>
+<p><a href="https://www.youtube.com/watch?v=yCF9l4_E5rI"><img src="code/img/curso-youtube.png" alt="Curso Eleventy"></a></p>
+<hr>
+<h3>🔻Generador de Sitios Estáticos:</h3>
+<ul>
+<li>Sitios web sin contenido dinámico.</li>
+<li>Eleventy es un generador de sitios estáticos, lo que significa que toma contenido y plantillas y los combina para producir archivos HTML, CSS y JavaScript estáticos que forman un sitio web completo.</li>
+</ul>
+<h3>🔻Plantillas:</h3>
+<ul>
+<li>Estructuras para la generación de contenido.</li>
+<li>Eleventy admite varias opciones de plantillas, incluyendo HTML simple, Markdown, Nunjucks, Liquid, Handlebars y más. Estas plantillas son archivos que contienen código que se utilizará para generar las páginas del sitio.</li>
+</ul>
+<h3>🔻Datos:</h3>
+<ul>
+<li>Información utilizada en la construcción del sitio.</li>
+<li>Eleventy permite la incorporación de datos en las plantillas desde una variedad de fuentes, como archivos JSON, YAML o JavaScript, así como desde APIs externas o bases de datos.</li>
+</ul>
+<h3>🔻Colecciones:</h3>
+<ul>
+<li>Agrupaciones de contenido relacionado.</li>
+<li>Eleventy permite organizar el contenido en colecciones, que son conjuntos de datos relacionados. Por ejemplo, puedes tener una colección para tus publicaciones de blog y otra para tus páginas de proyectos.</li>
+</ul>
+<h3>🔻Configuración:</h3>
+<ul>
+<li>Ajustes personalizables del funcionamiento de Eleventy.</li>
+<li>Eleventy es altamente configurable a través de su archivo de configuración .eleventy.js. Aquí puedes especificar opciones como directorios de entrada y salida, formatos de plantillas admitidos, y más.</li>
+</ul>
+<h3>🔻Comandos de línea de comandos (CLI):</h3>
+<ul>
+<li>Interfaz de línea de comandos para Eleventy.</li>
+<li>Eleventy incluye una interfaz de línea de comandos que te permite ejecutar diferentes tareas, como construir el sitio, servirlo localmente para desarrollo, y más.</li>
+</ul>
+<h3>🔻Extensiones y complementos:</h3>
+<ul>
+<li>Adiciones para ampliar la funcionalidad de Eleventy.</li>
+<li>Eleventy es extensible mediante el uso de complementos y extensiones que pueden agregar funcionalidades adicionales, como soporte para Sass, minificación de archivos, optimización de imágenes, entre otras cosas.</li>
+</ul>
+<p><a href="#temas">🔼 Regresar</a></p>
+
+    </main>
+    <hr>
+    <aside>
+      <h2>Categorías</h2>
+      <h3>Otros articulos</h3>
+      <ul>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/HTMLMd/">
+              HTML
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/NodeMd/">
+              Node.js
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/MarkdownMd/">
+              Markdown
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/GitMd/">
+              Git
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/ReactMd/">
+              React
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/EleventyMd/">
+              Eleventy
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_NodeMd/">
+              X-Node.js
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_HTMLMd/">
+              X-HTML
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_MarkdownMd/">
+              X-Markdown
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_GitMd/">
+              X-Git
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_ReactMd/">
+              X-React
+            </a>
+          </li>
+        
+          <li>
+            <a href="/eleventy-blog-started/blog/x_EleventyMd/">
+              X-Eleventy
+            </a>
+          </li>
+        
+      </ul>
+    </aside>
+    <footer>
+  <p>Diseño hecho ©2024 Fernando Sosa</p>
+</footer>
+    <script src="/eleventy-blog-started/js/main.js" type="module"></script>
+  </body>
+</html>
